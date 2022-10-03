@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1047189720156",
+    "project_id": "graket-b55e2",
+    "storage_bucket": "graket-b55e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047189720156:android:b86249cb72e642a4c9aa99",
+        "android_client_info": {
+          "package_name": "com.example.graket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1047189720156-eejndb68s454pbqqku7l7kftjqa267bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy8fc_vjY35ASANvAO5_279uoTbWxP-lg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1047189720156-eejndb68s454pbqqku7l7kftjqa267bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
