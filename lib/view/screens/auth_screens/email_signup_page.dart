@@ -202,7 +202,7 @@ class _EmailSignUpPageState extends State<EmailSignUpPage> {
                       if (value!.toString().length < 6) {
                         return "Password is too short";
                       } else if (!RegExp(
-                              r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                          r'^(?=.*?[a-z])(?=.*?[0-9]).{8,}$')
                           .hasMatch(value)) {
                         return "Password is too weak";
                       } else {

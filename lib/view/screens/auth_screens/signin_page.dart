@@ -44,7 +44,7 @@ class _SignInPageState extends State<SignInPage> {
 
   bool isPassword(String value) {
     String pattern =
-        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+        r'^(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
     RegExp regExp = RegExp(pattern);
     return regExp.hasMatch(value);
   }
@@ -193,9 +193,7 @@ class _SignInPageState extends State<SignInPage> {
                     var authCubit = AuthCubit.get(context);
 
                     return Center(
-                      child: state is LoginLoadingState
-                          ? const CircularProgressIndicator(color: Colors.white60,)
-                          : ElevatedButton.icon(
+                      child:  ElevatedButton.icon(
                               icon: const Icon(Icons.login),
                               style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
@@ -222,14 +220,7 @@ class _SignInPageState extends State<SignInPage> {
                                         context: context);
 
                                     if (state is LoginSuccessState) {
-                                      setLoggedIn();
-                                      setState(() {});
-                                      navigateTo(context, AppMainPage());
-                                      /*  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Home(index: 0)),
-                                    ); */
+
                                     } else {
                                       // Fail SignIn
                                       setState(() {
@@ -261,7 +252,9 @@ class _SignInPageState extends State<SignInPage> {
                                 alignment: Alignment.center,
                                 width: size.width - 40,
                                 height: 45,
-                                child: const Text("Sign in",
+                                child: state is LoginLoadingState
+                                    ? SizedBox(height: 20,width: 20,child: const CircularProgressIndicator(color: Colors.white,))
+                                    :const Text("Sign in",
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 15)),
                               ),
@@ -270,7 +263,15 @@ class _SignInPageState extends State<SignInPage> {
                   },
                   listener: (BuildContext context, Object? state) {
                     if (state is LoginSuccessState) {
-                      navigateTo(context, AppMainPage());
+                        setLoggedIn();
+                        setState(() {});
+
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AppMainPage( )),
+                        );
+
                     } else if (state is LoginErrorState) {
                       ShowAlertDialog().showErrorDialog(
                           context, 'login error', state.error.toString());

@@ -220,7 +220,25 @@ class SettingsPage extends StatelessWidget {
                       const Icon(Icons.arrow_forward_ios, color: neutral1Color),
                   horizontalTitleGap: 10,
                   onTap: () {
-                    setLoggedOut(context);
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Are you sure?'),
+                        content: const Text('Do you want to exit an App'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(false),
+                            //<-- SEE HERE
+                            child: const Text('No'),
+                          ),
+                          TextButton(
+                            onPressed: () =>    setLoggedOut(context),
+                            // <-- SEE HERE
+                            child: const Text('Yes'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 ),
               ),

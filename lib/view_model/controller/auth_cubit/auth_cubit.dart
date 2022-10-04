@@ -105,7 +105,7 @@ class AuthCubit extends Cubit<AuthStates> {
       required BuildContext context}) async {
     emit(LoginLoadingState());
     await getUsers();
-    FirebaseFirestore.instance
+   await FirebaseFirestore.instance
         .collection("loginCheck")
         .doc("123")
         .get()
@@ -122,11 +122,13 @@ class AuthCubit extends Cubit<AuthStates> {
       } else {
         var myIp = await GetMac.macAddress;
         if (usersList.any((element) {
-              return element.ip == myIp;
-            }) &&
-            usersList.any((element) {
-              return element.email == email;
-            })) {
+              return element.ip == myIp &&element.email == email;
+            })
+            // &&
+            // usersList.any((element) {
+            //   return element.email == email;
+            // })
+        ) {
           FirebaseAuth.instance
               .signInWithEmailAndPassword(email: email, password: password)
               .then((value) {
@@ -138,8 +140,9 @@ class AuthCubit extends Cubit<AuthStates> {
         } else {
           emit(LoginErrorState(
               "conflict email found, try to login with your mobile"));
-        }
       }
-    });
+     }
+    }
+    );
   }
 }
