@@ -87,7 +87,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          fontFamily: 'ElMessiri',
+          fontFamily: 'Lato',
         ),
 
 //        routerDelegate: AutoRouterDelegate(_appRouter),
