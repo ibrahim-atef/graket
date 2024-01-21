@@ -18,11 +18,5 @@ Facilitate seamless interaction between students and instructors:
 - **State Management:** Implements Flutter Bloc for efficient state management.
 - **Local Storage:** Uses Shared Preferences for simple local data storage.
 
-## Getting Started
 
-1. Ensure Flutter is installed.
-2. Clone the repository: `git clone <repository-url>`
-3. Navigate to the project directory: `cd graket`
-4. Run the app: `flutter run`
-
-Feel free to explore, contribute, or provide feedback. Happy coding!
+ 
